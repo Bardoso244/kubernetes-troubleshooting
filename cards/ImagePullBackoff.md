@@ -12,7 +12,7 @@ Attempted to create two containers with non-existing images, both failed
 
 root@controlplane:~$ k get pods
 NAME                            READY   STATUS             RESTARTS   AGE
-image-test-1-59584bd5c8-8c4vj   0/1     ImagePullBackOff   0          5m6s
-image-test-1-59584bd5c8-vvf7x   0/1     ImagePullBackOff   0          5m6s
+ - image-test-1-59584bd5c8-8c4vj   0/1     ImagePullBackOff   0          5m6s
+ - image-test-1-59584bd5c8-vvf7x   0/1     ImagePullBackOff   0          5m6s
 
 
