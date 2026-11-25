@@ -16,10 +16,11 @@ Learning how to administer and troubleshoot Kubernetes through hands-on practice
 
 ## Fault cards
 
-| STATUS appearing in the logs | One line description | Link to the card |
+| STATUS you see in `k get pods` | One line description | Link to the card |
 |---|---|---|
 | ImagePullBackOff | image could not be downloaded | [cards/imagepullbackoff.md](cards/imagepullbackoff.md) |
 | CrashLoopBackOff | container starts, then its process exits | [cards/crashloopbackoff.md](cards/crashloopbackoff.md) |
+| RunContainerError | image pulled, but the process could not start at all (bad command) | [cards/runcontainererror.md](cards/runcontainererror.md) |
 | Pending | scheduler does not have a node with enough CPU or memory | [cards/pending.md](cards/pending.md) |
 
 ## How each card is laid out
