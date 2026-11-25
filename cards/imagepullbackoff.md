@@ -8,7 +8,7 @@
 
 ## Real output
 
-Attempted to create two containers with non-existing images, both failed
+Attempted to create two pods with non-existing images, both failed
 
 root@controlplane:~$ k get pods
 NAME                            READY   STATUS             RESTARTS   AGE
