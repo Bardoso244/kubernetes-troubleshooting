@@ -12,16 +12,20 @@
 Created a deployment whose command exits immediately. The container started, then ended, and Kubernetes kept restarting it.
 
 ```
-root@controlplane:~$ k create deployment crash --image=nginx --replicas=2 -- 'echo booting; exit:1'
+root@controlplane:~$ k create deployment crash --image=busybox:1.36 --replicas=2 -- sh -c 'echo booting; exit 1'
 deployment.apps/crash created
 root@controlplane:~$ k get pods
-NAME                     READY   STATUS              RESTARTS     AGE
-crash-68c64456f9-gj7rr   0/1     RunContainerError   1 (3s ago)   4s
-crash-68c64456f9-qhd96   0/1     RunContainerError   1 (2s ago)   4s
+NAME                     READY   STATUS    RESTARTS     AGE
+crash-79c997d9d6-6pn25   0/1     Error     1 (2s ago)   4s
+crash-79c997d9d6-tkmhp   1/1     Running   1 (2s ago)   4s
+root@controlplane:~$ k get pods
+NAME                     READY   STATUS             RESTARTS     AGE
+crash-79c997d9d6-6pn25   0/1     CrashLoopBackOff   1 (4s ago)   7s
+crash-79c997d9d6-tkmhp   0/1     CrashLoopBackOff   1 (4s ago)   7s
 ```
 
 ```
-Last State:     Terminated
-   Reason:       StartError
-   Message:      failed to create containerd task: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during                    container init: exec: " echo booting; exit:1": executable file not found in $PATH
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
 ```
